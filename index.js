@@ -1,12 +1,16 @@
 const express = require('express');
 const { RtcTokenBuilder, RtcRole } = require('agora-access-token');
 const bodyParser = require('body-parser');
+const dotenv = require("dotenv");
+
+dotenv.config();
+
 
 const app = express();
 const port = 3000;
 
-const appID = '4ecd196b902042b388c2c8fa90c28492';
-const appCertificate = '96726c44c8d74fda86a1a690ed50aa3e';
+const appID = process.env.APP_ID;
+const appCertificate = process.env.APP_CERTIFICATE;
 const expireTime = 3600; // Token expiry time in seconds
 
 app.use(bodyParser.json());
